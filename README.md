@@ -1,6 +1,6 @@
 # Water Flow Monitoring System
 
-This project logs water flow from a physical flowmeter connected to an Arduino and visualizes the data in a web-based chart.
+This project logs water flow from a physical flowmeter connected to an Arduino and visualizes the data in a web based chart.
 
 ---
 
