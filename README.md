@@ -31,16 +31,23 @@ This project logs water flow from a physical flowmeter connected to an Arduino a
 
 ## 🔌 To Run
 
-Open the terminal and `cd` into the 'WaterFlow' directory.
-Now, run:
+Open the terminal and navigate to the WaterFlow directory:
+```batch
+cd WaterFlow
+```
+Then, install the dependecies and start the development server:
 ```batch
 npm install
 npm run dev
+```
+Go back to the main project directory and install the Python dependenyc:
+```batch
 cd ..
 pip install pyserial
 ```
-After running your .ino file, make sure the Serial Monitor is closed and run:
+After uploading the `.ino` file to your Arduino, make sure the serial monitor is closed and run:
 ```batch
 py writer.py
 ```
+
 Your website should be up and running at https://localhost:5050/.
