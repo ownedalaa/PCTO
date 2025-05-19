@@ -51,5 +51,12 @@ After uploading the `.ino` file to your Arduino, make sure the serial monitor is
 ```batch
 py writer.py
 ```
-
 Your website should be up and running at https://localhost:5050/.
+
+### 🔧 How to start a simulation
+
+If you don't have an Arduino or you simply want to test 'theorical' values, you can simply run a simulation:
+```batch
+py fake_writer.py
+```
+Just run the command above instead of running `py writer.py`.
