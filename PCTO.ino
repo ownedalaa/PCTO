@@ -1,5 +1,5 @@
 volatile int pulseCount = 0;
-float flowRate = 0.0;
+float totalLiters = 0.0;
 
 unsigned long lastSendTime = 0;
 const int sensorPin = 2; // Must support interrupts (D2 on Uno)
@@ -15,18 +15,17 @@ void setup() {
 void loop() {
   unsigned long currentTime = millis();
 
-  if (currentTime - lastSendTime >= 3000) {
+  if (currentTime - lastSendTime >= 1000) {  // Measure every 1 second
     detachInterrupt(digitalPinToInterrupt(sensorPin));  // stop counting
 
-    // Calculate flow rate in L/min
-    // YF-S201: 450 pulses = 1 liter => 7.5 pulses/sec = 1 L/min
-    float freq = pulseCount / 3.0; // pulses per second (over 3s)
-    flowRate = freq / 7.5;         // L/min
+    // YF-S201: 450 pulses = 1 liter
+    float litersThisSecond = pulseCount / 450.0;
+    totalLiters += litersThisSecond;
 
-    // Send over serial
+    // Send total liters over serial
     Serial.print(zone);
     Serial.print(": ");
-    Serial.println(flowRate, 2); // 2 decimal places
+    Serial.println(totalLiters, 2);  // 2 decimal places
 
     pulseCount = 0;
     lastSendTime = currentTime;
