@@ -1,3 +1,5 @@
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0/)
+
 # Water Flow Monitoring System
 
 This project logs water flow from a physical flowmeter connected to an Arduino and visualizes the data in a web based chart.
